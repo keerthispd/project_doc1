@@ -1,18 +1,214 @@
-<html>
+<html lang="en">
 <head>
-  <title>Documentation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Documentation</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-  <nav>
-    <a href="docs/intro.html">Introduction</a>
-    <a href="docs/installation.html">Installation</a>
-    <a href="docs/usage.html">Usage</a>
-  </nav>
+  <header class="header">
+    <h1>Interactive Presentation Site</h1>
+    <p class="subtitle">Click cards, interact with charts, explore architecture</p>
+  </header>
 
-  <h1>Project Documentation</h1>
-  <p>Welcome to the documentation website.</p>
+  <div class="container">
+
+    <!-- INTERACTIVE CARDS SECTION -->
+    <section class="demo-section">
+      <h2>🎯 Interactive Architecture Components</h2>
+      <p>Click any card below to reveal component details</p>
+      
+      <div class="arch-grid">
+        <div class="arch-card" onclick="toggleCard(this)">
+          <div class="card-front">
+            <h3>Frontend Layer</h3>
+            <p class="card-hint">Click to explore →</p>
+          </div>
+          <div class="card-back hidden">
+            <h4>Frontend</h4>
+            <ul>
+              <li>HTML5 / CSS3</li>
+              <li>JavaScript (Vanilla)</li>
+              <li>D3.js for visualizations</li>
+              <li>Interactive animations</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="arch-card" onclick="toggleCard(this)">
+          <div class="card-front">
+            <h3>Data Processing</h3>
+            <p class="card-hint">Click to explore →</p>
+          </div>
+          <div class="card-back hidden">
+            <h4>Data Layer</h4>
+            <ul>
+              <li>JSON data structures</li>
+              <li>Client-side filtering</li>
+              <li>Real-time calculations</li>
+              <li>No backend needed</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="arch-card" onclick="toggleCard(this)">
+          <div class="card-front">
+            <h3>Visualization</h3>
+            <p class="card-hint">Click to explore →</p>
+          </div>
+          <div class="card-back hidden">
+            <h4>Visualization</h4>
+            <ul>
+              <li>Charts & Graphs</li>
+              <li>Diagrams (Mermaid)</li>
+              <li>Smooth transitions</li>
+              <li>Responsive design</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE CHART SECTION -->
+    <section class="demo-section">
+      <h2>📊 Interactive Chart Example</h2>
+      <p>This chart updates when you click the buttons below</p>
+      <canvas id="myChart" class="chart-container"></canvas>
+      <div class="button-group">
+        <button onclick="updateChart('sales')">Show Sales</button>
+        <button onclick="updateChart('traffic')">Show Traffic</button>
+        <button onclick="updateChart('users')">Show Users</button>
+      </div>
+    </section>
+
+    <!-- EXPANDABLE SECTION -->
+    <section class="demo-section">
+      <h2>🔍 Expandable Information Panels</h2>
+      
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAccordion(this)">What is this site about?</button>
+          <div class="accordion-content hidden">
+            <p>This is a static presentation site with interactive elements. No backend server is needed—all interactions happen in the browser using JavaScript.</p>
+          </div>
+        </div>
+        
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAccordion(this)">What technologies are used?</button>
+          <div class="accordion-content hidden">
+            <p>HTML5, CSS3, Vanilla JavaScript, Chart.js for charts, and Mermaid for diagrams. All lightweight and frontend-only.</p>
+          </div>
+        </div>
+        
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAccordion(this)">Why no backend?</button>
+          <div class="accordion-content hidden">
+            <p>For presentation sites, a backend isn't necessary. Data can be embedded in JSON, and all processing/visualization happens client-side, making it faster and easier to deploy.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORIGINAL NAVIGATION -->
+    <section class="demo-section">
+      <h2>Documentation Sections</h2>
+      <div class="card-grid">
+        <a href="#" class="card">Problem Statement</a>
+        <a href="#" class="card">Introduction</a>
+        <a href="#" class="card">Architecture</a>
+        <a href="#" class="card">Tech Stack</a>
+        <a href="#" class="card">Tools Used</a>
+        <a href="#" class="card">Workflow</a>
+        <a href="#" class="card">Features</a>
+        <a href="#" class="card">MVP</a>
+        <a href="#" class="card">Statistics</a>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>Interactive Presentation Site © 2026</p>
+  </footer>
+
+  <!-- Chart.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <script>
+    let chartInstance = null;
+    const chartData = {
+      sales: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        data: [65, 59, 80, 81, 56, 55]
+      },
+      traffic: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        data: [120, 150, 170, 190, 210, 240]
+      },
+      users: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        data: [30, 45, 60, 75, 95, 130]
+      }
+    };
+
+    function initChart() {
+      const ctx = document.getElementById('myChart').getContext('2d');
+      chartInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: chartData.sales.labels,
+          datasets: [{
+            label: 'Sales',
+            data: chartData.sales.data,
+            borderColor: '#0AC4E0',
+            backgroundColor: 'rgba(10, 196, 224, 0.1)',
+            tension: 0.4,
+            borderWidth: 3,
+            fill: true,
+            pointRadius: 6,
+            pointBackgroundColor: '#0AC4E0'
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { display: true }
+          },
+          scales: {
+            y: { beginAtZero: true }
+          }
+        }
+      });
+    }
+
+    function updateChart(type) {
+      chartInstance.data.datasets[0].data = chartData[type].data;
+      chartInstance.data.datasets[0].label = type.charAt(0).toUpperCase() + type.slice(1);
+      chartInstance.update();
+    }
+
+    function toggleCard(card) {
+      const front = card.querySelector('.card-front');
+      const back = card.querySelector('.card-back');
+      front.classList.toggle('hidden');
+      back.classList.toggle('hidden');
+    }
+
+    function toggleAccordion(btn) {
+      const content = btn.nextElementSibling;
+      content.classList.toggle('hidden');
+      btn.classList.toggle('active');
+    }
+
+    // Initialize chart when page loads
+    document.addEventListener('DOMContentLoaded', initChart);
+  </script>
 
 </body>
 </html>
+
