@@ -42,68 +42,77 @@
         </div>
 
         <h3>Architecture Diagram</h3>
-        <div class="code-block">
-          <pre>    Internet Traffic
-         |
-         v
-┌─────────────────────────────────────────────────────┐
-│  Global Load Balancer (Layer 7 / App Layer)         │
-│  - SSL/TLS Termination, Traffic Distribution        │
-└──────────────────┬──────────────────────────────────┘
-                   |
-         ┌─────────v─────────┐
-         │ API Gateway       │
-         │ - Rate Limiting   │
-         │ - Auth / API Keys │
-         │ - Request Routing │
-         └────────┬──────────┘
-                  |
-    ┌─────────────┼─────────────┐
-    |  WAF deployed BEFORE app  |
-    |  (or ON / AFTER app)      |
-    └─────────────┼─────────────┘
-                  |
-         ┌────────v─────────────────┐
-         │ WAF Inspection Engine    │
-         │ (DUAL WALL)             │
-         │ - Inspect REQUEST  →    │
-         │ - Inspect RESPONSE ←    │
-         └────────┬─────────────────┘
-                  |
-   ┌──────────────┼──────────────┐
-   |              |              |
-   v              v              v
-┌────────┐ ┌───────────┐ ┌──────────────┐
-│ Cache  │ │ ML Engine │ │ Decision     │
-│ (K-V   │ │ + XAI     │ │ Engine       │
-│ Store) │ │ - Anomaly │ │ - Game Theory│
-│        │ │ - Classify│ │ - Probability│
-└────────┘ └───────────┘ └──────┬───────┘
-                                |
-              ┌─────────────────┼──────────┐
-              |                 |          |
-              v                 v          v
-           Allow             Block      Alert
-              |
-              v
-      Backend Application
-              |
-   ┌──────────┼──────────────────┐
-   v          v                  v
-┌────────┐ ┌──────────────┐ ┌──────────────┐
-│ DSMS / │ │ Distributed  │ │ SOC          │
-│ Rate   │ │ Logging &    │ │ Dashboard &  │
-│ Limiter│ │ Blob/DB      │ │ Control Sys  │
-└────────┘ └──────────────┘ │ (RBAC)       │
-                            └──────────────┘
-              |
-              v
-┌──────────────────────────┐
-│ Monitoring System        │
-│ - Metrics & Health       │
-│ - Bird's-Eye Views       │
-│ - Alerting & Reporting   │
-└──────────────────────────┘</pre>
+        <div style="text-align: center; margin: 30px 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; border-radius: 15px;">
+          <pre style="text-align: left; background: white; padding: 35px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); font-family: 'Courier New', monospace; font-size: 14px; line-height: 1.7; color: #2c3e50; overflow-x: auto; max-width: 950px; margin: 0 auto;">
+                                ┌───────────────────────┐
+                                │   Internet Traffic    │
+                                └───────────┬───────────┘
+                                            │
+                                            ▼
+                    ┌───────────────────────────────────────────┐
+                    │   Global Load Balancer (Layer 7 - App)    │
+                    │   • SSL/TLS Termination                   │
+                    │   • Traffic Distribution                  │
+                    └────────────────────┬──────────────────────┘
+                                         │
+                                         ▼
+                            ┌────────────────────────┐
+                            │     API Gateway        │
+                            │   • Rate Limiting      │
+                            │   • Auth / API Keys    │
+                            │   • Request Routing    │
+                            └──────────┬─────────────┘
+                                       │
+                                       ▼
+                        ┌──────────────────────────────┐
+                        │   WAF Deployment Layer       │
+                        │   • Inline (Before app)      │
+                        │   • Sidecar (After app)      │
+                        └─────────────┬────────────────┘
+                                      │
+                                      ▼
+                   ┌──────────────────────────────────────┐
+                   │  WAF Inspection Engine (Dual Wall)   │
+                   │   → Inspect HTTP Request             │
+                   │   ← Inspect HTTP Response            │
+                   └──────────────────┬───────────────────┘
+                                      │
+              ┌───────────────────────┼───────────────────────┐
+              │                       │                       │
+              ▼                       ▼                       ▼
+   ┌──────────────────┐    ┌──────────────────┐    ┌──────────────────┐
+   │   Cache Layer    │    │   ML Engine      │    │ Decision Engine  │
+   │   (Key-Value)    │    │     + XAI        │    │  Game Theory     │
+   │   Fast Lookup    │    │   • Anomaly      │    │  Risk Scoring    │
+   │                  │    │   • Classification│   │  Strategic AI    │
+   └────────┬─────────┘    └────────┬─────────┘    └────────┬─────────┘
+            │                       │                       │
+            └───────────────────────┴───────────────────────┘
+                                    │
+                    ┌───────────────┼───────────────┐
+                    │               │               │
+                    ▼               ▼               ▼
+              ┌──────────┐    ┌──────────┐    ┌──────────┐
+              │  ALLOW   │    │  BLOCK   │    │  ALERT   │
+              └────┬─────┘    └────┬─────┘    └────┬─────┘
+                   │               │               │
+        ┌──────────┴──────┐        │        ┌──────┴─────────┐
+        │                 │        │        │                │
+        ▼                 ▼        ▼        ▼                ▼
+  ┌──────────┐    ┌──────────────────────────────┐    ┌──────────────┐
+  │   IDPS   │    │  Distributed Logging &       │    │     SOC      │
+  │   Rate   │    │  Blob Storage / Database     │◄───┤  Dashboard   │
+  │  Limiter │    │  (Audit Trail & Analytics)   │    │  & Control   │
+  └──────────┘    └──────────────────────────────┘    │    (RBAC)    │
+                                                       └──────┬───────┘
+                                                              │
+                                                              ▼
+                                                   ┌──────────────────┐
+                                                   │   Monitoring &   │
+                                                   │  Observability   │
+                                                   │  Metrics/Health  │
+                                                   └──────────────────┘
+          </pre>
         </div>
 
         <h3>Data Flow (12 Steps)</h3>
