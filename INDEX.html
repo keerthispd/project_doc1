@@ -12,128 +12,175 @@
 <body>
 
   <header class="header">
-    <h1>Interactive Presentation Site</h1>
-    <p class="subtitle">Click cards, interact with charts, explore architecture</p>
+    <h1>PS-2.2: Intelligent Web Application Firewall</h1>
+    <p class="subtitle">An adaptive, distributed WAF with XAI, game theory decisions, and dual-wall inspection</p>
   </header>
 
   <div class="container">
 
     <!-- INTERACTIVE CARDS SECTION -->
     <section class="demo-section">
-      <h2>🎯 Interactive Architecture Components</h2>
-      <p>Click any card below to reveal component details</p>
-      
+      <h2>🎯 Architecture Components</h2>
+      <p>Core components of our distributed, adaptive WAF system</p>
+  
       <div class="arch-grid">
         <div class="arch-card" onclick="toggleCard(this)">
           <div class="card-front">
-            <h3>Frontend Layer</h3>
+            <h3>🛡️ Dual-Wall Inspection</h3>
             <p class="card-hint">Click to explore →</p>
           </div>
           <div class="card-back hidden">
-            <h4>Frontend</h4>
+            <h4>Dual-Wall Protection</h4>
             <ul>
-              <li>HTML5 / CSS3</li>
-              <li>JavaScript (Vanilla)</li>
-              <li>D3.js for visualizations</li>
-              <li>Interactive animations</li>
+              <li>Inspect REQUEST (inbound)</li>
+              <li>Inspect RESPONSE (outbound)</li>
+              <li>Bidirectional measurement</li>
+              <li>Data leakage detection</li>
             </ul>
           </div>
         </div>
 
         <div class="arch-card" onclick="toggleCard(this)">
           <div class="card-front">
-            <h3>Data Processing</h3>
+            <h3>🧠 ML + XAI Ability</h3>
             <p class="card-hint">Click to explore →</p>
           </div>
           <div class="card-back hidden">
-            <h4>Data Layer</h4>
+            <h4>Intelligence Layer</h4>
             <ul>
-              <li>JSON data structures</li>
-              <li>Client-side filtering</li>
-              <li>Real-time calculations</li>
-              <li>No backend needed</li>
+              <li>ML-based anomaly detection</li>
+              <li>XAI (SHAP/LIME) explainability</li>
+              <li>LT, ST & LST memory</li>
+              <li>Online learning & feedback</li>
             </ul>
           </div>
         </div>
 
         <div class="arch-card" onclick="toggleCard(this)">
           <div class="card-front">
-            <h3>Visualization</h3>
+            <h3>🎲 Strategy Matrix</h3>
             <p class="card-hint">Click to explore →</p>
           </div>
           <div class="card-back hidden">
-            <h4>Visualization</h4>
+            <h4>Decision Matrix</h4>
             <ul>
-              <li>Charts & Graphs</li>
-              <li>Diagrams (Mermaid)</li>
-              <li>Smooth transitions</li>
-              <li>Responsive design</li>
+              <li>Probability-based strategies</li>
+              <li>Game theory matching</li>
+              <li>User vs. bot models</li>
+              <li>Trust & threat scoring</li>
             </ul>
           </div>
         </div>
+
+        <div class="arch-card" onclick="toggleCard(this)">
+          <div class="card-front">
+            <h3>🔌I/O API Library</h3>
+            <p class="card-hint">Click to explore →</p>
+          </div>
+          <div class="card-back hidden">
+            <h4>Native Integrability</h4>
+            <ul>
+              <li>Deploy on/before/after app</li>
+              <li>Base stats & modules</li>
+              <li>RESTful API gateway</li>
+              <li>K-V store caching</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="arch-card" onclick="toggleCard(this)">
+          <div class="card-front">
+            <h3>📊 SOC Analytics</h3>
+            <p class="card-hint">Click to explore →</p>
+          </div>
+          <div class="card-back hidden">
+            <h4>Control System</h4>
+            <ul>
+              <li>Bird's-eye monitoring views</li>
+              <li>RBAC-based access control</li>
+              <li>Real-time alerts & metrics</li>
+              <li>Attack vector tracing</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="arch-card" onclick="toggleCard(this)">
+          <div class="card-front">
+            <h3>🌐 Distributed ML</h3>
+            <p class="card-hint">Click to explore →</p>
+          </div>
+          <div class="card-back hidden">
+            <h4>Infrastructure</h4>
+            <ul>
+              <li>Open-source & distributed</li>
+              <li>Docker + K8s + Swarm</li>
+              <li>Nginx load balancing</li>
+              <li>Federated ML / PPML</li>
       </div>
     </section>
 
     <!-- INTERACTIVE CHART SECTION -->
     <section class="demo-section">
-      <h2>📊 Interactive Chart Example</h2>
-      <p>This chart updates when you click the buttons below</p>
+      <h2>📊 WAF Performance Metrics</h2>
+      <p>Real-time monitoring of WAF accuracy, latency, and system health</p>
+    
       <canvas id="myChart" class="chart-container"></canvas>
       <div class="button-group">
-        <button onclick="updateChart('sales')">Show Sales</button>
-        <button onclick="updateChart('traffic')">Show Traffic</button>
-        <button onclick="updateChart('users')">Show Users</button>
+        <button onclick="updateChart('detection')">Detection Accuracy</button>
+        <button onclick="updateChart('latency')">Latency (ms)</button>
+        <button onclick="updateChart('issues')">Issues Tracked</button>
       </div>
     </section>
 
     <!-- EXPANDABLE SECTION -->
     <section class="demo-section">
-      <h2>🔍 Expandable Information Panels</h2>
+      <h2>🔍 Information Panels</h2>
       
       <div class="accordion">
         <div class="accordion-item">
-          <button class="accordion-btn" onclick="toggleAccordion(this)">What is this site about?</button>
+          <button class="accordion-btn" onclick="toggleAccordion(this)">What makes this WAF different?</button>
           <div class="accordion-content hidden">
-            <p>This is a static presentation site with interactive elements. No backend server is needed—all interactions happen in the browser using JavaScript.</p>
+            <p>Our WAF is <strong>open-source, distributed</strong> (centralized dataset and decentralised instances), with XAI explainability, game theory decisions, dual-wall inspection, and adaptive learning via LT/ST/LST memory. None of the known implementations offer this combination.</p>
           </div>
         </div>
         
         <div class="accordion-item">
-          <button class="accordion-btn" onclick="toggleAccordion(this)">What technologies are used?</button>
+          <button class="accordion-btn" onclick="toggleAccordion(this)">What are the core features?</button>
           <div class="accordion-content hidden">
-            <p>HTML5, CSS3, Vanilla JavaScript, Chart.js for charts, and Mermaid for diagrams. All lightweight and frontend-only.</p>
+            <p><strong>① Native integrability</strong> via API library, <strong>② Bidirectional</strong> deployment, <strong>③ Dual-wall</strong> inspection, <strong>④ XAI-based</strong> tracing, <strong>⑤ Game theory</strong> decisions, <strong>⑥ On-demand explainability</strong>, <strong>⑦ Memory + NNs</strong> for adaptive learning.</p>
           </div>
         </div>
         
         <div class="accordion-item">
-          <button class="accordion-btn" onclick="toggleAccordion(this)">Why no backend?</button>
+          <button class="accordion-btn" onclick="toggleAccordion(this)">What challenges are being addressed?</button>
           <div class="accordion-content hidden">
-            <p>For presentation sites, a backend isn't necessary. Data can be embedded in JSON, and all processing/visualization happens client-side, making it faster and easier to deploy.</p>
+            <p>12 key challenges: instance management, memory architecture (LT/ST/LST), malicious traffic handling, user vs. bot detection, feedback mechanisms, adaptive learning, decision logic, stream security, neural network fitting, model accuracy, SOC communication, and computational optimization.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ORIGINAL NAVIGATION -->
+    <!-- DOCUMENTATION SECTIONS -->
     <section class="demo-section">
-      <h2>Documentation Sections</h2>
+      <h2>📚 Documentation Sections</h2>
+      <p>Explore comprehensive documentation on each aspect of the project</p>
       <div class="card-grid">
-        <a href="#" class="card">Problem Statement</a>
-        <a href="#" class="card">Introduction</a>
-        <a href="#" class="card">Architecture</a>
-        <a href="#" class="card">Tech Stack</a>
-        <a href="#" class="card">Tools Used</a>
-        <a href="#" class="card">Workflow</a>
-        <a href="#" class="card">Features</a>
-        <a href="#" class="card">MVP</a>
-        <a href="#" class="card">Statistics</a>
+        <a href="problem.html" class="card">📋 Problem Statement</a>
+        <a href="introduction.html" class="card">🚀 Introduction</a>
+        <a href="architecture.html" class="card">🏗️ Architecture</a>
+        <a href="techstack.html" class="card">⚙️ Tech Stack</a>
+        <a href="tools.html" class="card">🛠️ Tools Used</a>
+        <a href="workflow.html" class="card">🔄 Workflow</a>
+        <a href="features.html" class="card">✨ Features</a>
+        <a href="mvp.html" class="card">🎯 MVP</a>
+        <a href="statistics.html" class="card">📈 Statistics</a>
       </div>
     </section>
 
   </div>
 
   <footer>
-    <p>Interactive Presentation Site © 2026</p>
+    <p>Intelligent Web Application Firewall (PS-2.2) © 2026</p>
   </footer>
 
   <!-- Chart.js Library -->
@@ -142,17 +189,17 @@
   <script>
     let chartInstance = null;
     const chartData = {
-      sales: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-        data: [65, 59, 80, 81, 56, 55]
+      detection: {
+        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
+        data: [82, 87, 89, 90, 88, 94]
       },
-      traffic: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-        data: [120, 150, 170, 190, 210, 240]
+      latency: {
+        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
+        data: [12, 10.5, 11.8, 9.2, 10.1, 8.5]
       },
-      users: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-        data: [30, 45, 60, 75, 95, 130]
+      issues: {
+        labels: ['Instance Mgmt', 'Memory Arch', 'Malicious Traffic', 'User vs Bot', 'Feedback', 'Adaptive Learning', 'Decision Logic', 'Stream Sec', 'NN Fitting', 'Model Accuracy', 'SOC Comm', 'Optimization'],
+        data: [8, 9, 6, 9, 5, 8, 9, 7, 8, 6, 5, 9]
       }
     };
 
@@ -161,10 +208,10 @@
       chartInstance = new Chart(ctx, {
         type: 'line',
         data: {
-          labels: chartData.sales.labels,
+          labels: chartData.detection.labels,
           datasets: [{
-            label: 'Sales',
-            data: chartData.sales.data,
+            label: 'Detection Accuracy (%)',
+            data: chartData.detection.data,
             borderColor: '#0AC4E0',
             backgroundColor: 'rgba(10, 196, 224, 0.1)',
             tension: 0.4,
@@ -187,8 +234,21 @@
     }
 
     function updateChart(type) {
+      const labels = {
+        detection: 'Detection Accuracy (%)',
+        latency: 'Latency (ms)',
+        issues: 'Issues Priority (1-10)'
+      };
+      const chartTypes = {
+        detection: 'line',
+        latency: 'line',
+        issues: 'bar'
+      };
+      
+      chartInstance.data.labels = chartData[type].labels;
       chartInstance.data.datasets[0].data = chartData[type].data;
-      chartInstance.data.datasets[0].label = type.charAt(0).toUpperCase() + type.slice(1);
+      chartInstance.data.datasets[0].label = labels[type];
+      chartInstance.config.type = chartTypes[type];
       chartInstance.update();
     }
 

@@ -1,0 +1,85 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workflow - Intelligent Web Application Firewall (PS-2.2)</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <header class="header">
+    <h1>Development Workflow</h1>
+    <p class="subtitle">Secure development practices for WAF engineering</p>
+  </header>
+
+  <div class="container">
+
+    <section class="content-section">
+      <div class="breadcrumb">
+        <a href="INDEX.html">← Back to Home</a>
+      </div>
+
+      <div class="doc-content-full">
+        <h2>Development Process</h2>
+        <p><strong>SDevLC + SDesLC</strong> (dual lifecycle) | <strong>Agile-Waterfall hybrid</strong> for scaling</p>
+
+        <h3>Security-First Workflow</h3>
+        <p>Threat modeling → Rule dev → Model training → Security testing (OWASP ZAP, Burp) → Perf validation (&lt;10ms) → Incident sim → Staged deploy</p>
+
+        <h3>ML Pipeline</h3>
+        <p>Data collection (attack + clean traffic) → Feature engineering → Train (anomaly + classification) → Validate (ROC, precision/recall) → Test (FP rates) → Deploy (ONNX) → Monitor → Retrain (daily/weekly)</p>
+
+        <h3>Code Review</h3>
+        <p>① Security (SAST) | ② Performance (latency &lt;&lt; α) | ③ Threat logic (WAF specialist) | ④ ML (FP/FN rates) | ⑤ Testing verification</p>
+
+        <h3>Testing Hierarchy</h3>
+        <div class="code-block" style="font-size: 0.9em;">
+          <pre>Smoke → Unit (per function) → Integration/Regression → System → Stress</pre>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-top: 15px;">
+          <div>
+            <strong>Smoke + Unit</strong><br>
+            Quick checks • Parsing • Features • Decision logic
+          </div>
+          <div>
+            <strong>Integration</strong><br>
+            Pipeline flow • ML inference • Decision enforcement
+          </div>
+          <div>
+            <strong>System + Stress</strong><br>
+            Attack sim (SQLi, XSS) • 1M+ req/s • Latency &lt;&lt; α
+          </div>
+        </div>
+
+        <h3>Feature Flow</h3>
+        <p>SRS → Spec → Implement (SDevLC) → Test (QA) → Deploy → Monitor → Iterate (online learning)</p>
+
+        <h3>Data Engineering</h3>
+        <p>Collect (online + custom datasets) → Preprocess (entropy/density/classification per layer) → Design models (statistical + ML) → Train/Eval → Optimize (iterate with feedback)</p>
+
+        <h3>Automation</h3>
+        <p>① CI/CD (auto build/test/deploy) | ② SOC dashboard (bird's-eye view) | ③ Agile-Waterfall hybrid scaling</p>
+
+        <h3>Deployment Pipeline</h3>
+        <div class="code-block" style="font-size: 0.85em;">
+          <pre>Local Dev → GitHub (feature branch) → Auto Tests (Smoke/Unit/Int)
+→ Security Review (SAST + specialist) → Perf Benchmark (latency)
+→ Merge to develop → Staging (Docker+K8s) → System/Stress Tests
+→ Merge to main → Production → SOC Monitor + Online Learning</pre>
+        </div>
+
+        <h3>Collaboration</h3>
+        <p>Daily standups • Security-focused PR reviews • Peak individual efficiency • Regular retrospectives</p>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>Intelligent Web Application Firewall (PS-2.2) © 2026</p>
+  </footer>
+
+</body>
+</html>

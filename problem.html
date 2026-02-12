@@ -1,0 +1,105 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problem Statement - Intelligent Web Application Firewall (PS-2.2)</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <header class="header">
+    <h1>PS-2.2: Intelligent Web Application Firewall with Adaptive Learning</h1>
+    <p class="subtitle">Next-generation security against evolving web threats</p>
+  </header>
+
+  <div class="container">
+
+    <section class="content-section">
+      <div class="breadcrumb">
+        <a href="INDEX.html">← Back to Home</a>
+      </div>
+
+      <div class="doc-content-full">
+        <h2>The Problem</h2>
+        <p>Traditional WAFs are <strong>static, centralized, and reactive</strong> — they fail against zero-day attacks and evolving threats.</p>
+        
+        <h3>Legacy WAF Failures</h3>
+        <ul class="content-list">
+          <li>Static & Centralized — no adaptation</li>
+          <li>Signature-Only Detection — blind to novel attacks</li>
+          <li>No Memory or Learning — cannot improve</li>
+          <li>Black-Box Decisions — no explainability (XAI)</li>
+          <li>One-Way Inspection — requests only, not responses</li>
+          <li>Zero Context Awareness — isolated threat view</li>
+        </ul>
+
+        <h3>Our Approach</h3>
+        <p><strong>Distributed. Open-source. Adaptive. Explainable.</strong> We solve what no existing implementation has:</p>
+        <ul class="content-list">
+          <li>Game theory + probability decisions</li>
+          <li>Memory (LT/ST/LST) + neural networks</li>
+          <li>XAI — trace every decision with graphs</li>
+          <li>Dual-wall — inspect request AND response</li>
+        </ul>
+
+        <h2>Constraints</h2>
+        <div class="highlight-box">
+        <p><strong>Latency:</strong> max = α, time complexity &lt;&lt; α | <strong>Throughput:</strong> millions req/sec | <strong>Scale:</strong> distributed horizontal</p>
+        <p><strong>Privacy:</strong> HTTPS/TLS inspection, PPML, future ZKP | <strong>Deployment:</strong> on/before/after any mode</p>
+        </div>
+
+        <h2>Core Capabilities</h2>
+        <p><strong>7 Novel Features</strong> no existing WAF offers:</p>
+
+        <div class="content-list" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+          <div>① <strong>API Library</strong> — native integrability</div>
+          <div>② <strong>Any Mode</strong> — deploy on/before/after</div>
+          <div>③ <strong>Dual-Wall</strong> — request + response</div>
+          <div>④ <strong>XAI Tracing</strong> — attack vector graphs</div>
+          <div>⑤ <strong>Game Theory</strong> — probability decisions</div>
+          <div>⑥ <strong>On-Demand XAI</strong> — explain everything</div>
+          <div>⑦ <strong>Adaptive Memory</strong> — LT/ST/LST + NNs</div>
+          <div style="grid-column: span 2; text-align: center; margin-top: 10px;"><strong>+</strong> Encrypted traffic • User modelling • Context awareness • DDoS • Zero-day • OWASP+ • Custom policies • Trust models</div>
+        </div>
+
+        <h3>Engineering Principles</h3>
+        <p><em>Start fresh. Change everything (for the better). All current features, but better. Peak engineering. Team efficiency.</em></p>
+
+        <h3>Project Scope Summary</h3>
+        <table class="scope-table">
+          <tr>
+            <td><strong>In Scope:</strong></td>
+            <td>
+              • Adaptive ML-based threat detection with XAI<br>
+              • Dual-wall inspection (request & response)<br>
+              • Real-time SOC dashboard & control system<br>
+              • User modelling & trust/threat models<br>
+              • Custom & auto-policy management<br>
+              • Distributed deployment via API library<br>
+              • Game theory-based decision engine
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Out of Scope (Initial):</strong></td>
+            <td>
+              • Full ZKP integration (future-planned)<br>
+              • Blockchain/crypto mechanisms (under consideration)<br>
+              • Hardware acceleration (FPGA/GPU)<br>
+              • Managed cloud WAF service (on-prem focus)<br>
+              • CDN/edge computing integration
+            </td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>Intelligent Web Application Firewall (PS-2.2) © 2026</p>
+  </footer>
+
+</body>
+</html>

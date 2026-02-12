@@ -1,0 +1,178 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architecture - Intelligent Web Application Firewall (PS-2.2)</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <header class="header">
+    <h1>WAF System Architecture</h1>
+    <p class="subtitle">Intelligent traffic inspection with adaptive machine learning</p>
+  </header>
+
+  <div class="container">
+
+    <section class="content-section">
+      <div class="breadcrumb">
+        <a href="INDEX.html">← Back to Home</a>
+      </div>
+
+      <div class="doc-content-full">
+        <h2>Architecture</h2>
+        <p><strong>HLD → LLD</strong> approach. <strong>Latency:</strong> max = α, time complexity &lt;&lt; α | <strong>Entry:</strong> Layer 7 / Global LB | <strong>Deploy:</strong> on/before/after</p>
+
+        <h3>Key Components</h3>
+        <div class="content-list" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; font-size: 0.95em;">
+          <div>• Global Load Balancer</div>
+          <div>• API Gateway</div>
+          <div>• <strong>Dual-Wall Inspection</strong></div>
+          <div>• <strong>ML + XAI Engine</strong></div>
+          <div>• <strong>Game Theory Decision</strong></div>
+          <div>• K-V Cache</div>
+          <div>• Rate Limiters (DSMS)</div>
+          <div>• Distributed Logging</div>
+          <div>• Monitoring System</div>
+          <div>• Blob/DB Storage</div>
+          <div>• <strong>SOC Dashboard</strong></div>
+          <div>• RBAC Control</div>
+        </div>
+
+        <h3>Architecture Diagram</h3>
+        <div class="code-block">
+          <pre>    Internet Traffic
+         |
+         v
+┌─────────────────────────────────────────────────────┐
+│  Global Load Balancer (Layer 7 / App Layer)         │
+│  - SSL/TLS Termination, Traffic Distribution        │
+└──────────────────┬──────────────────────────────────┘
+                   |
+         ┌─────────v─────────┐
+         │ API Gateway       │
+         │ - Rate Limiting   │
+         │ - Auth / API Keys │
+         │ - Request Routing │
+         └────────┬──────────┘
+                  |
+    ┌─────────────┼─────────────┐
+    |  WAF deployed BEFORE app  |
+    |  (or ON / AFTER app)      |
+    └─────────────┼─────────────┘
+                  |
+         ┌────────v─────────────────┐
+         │ WAF Inspection Engine    │
+         │ (DUAL WALL)             │
+         │ - Inspect REQUEST  →    │
+         │ - Inspect RESPONSE ←    │
+         └────────┬─────────────────┘
+                  |
+   ┌──────────────┼──────────────┐
+   |              |              |
+   v              v              v
+┌────────┐ ┌───────────┐ ┌──────────────┐
+│ Cache  │ │ ML Engine │ │ Decision     │
+│ (K-V   │ │ + XAI     │ │ Engine       │
+│ Store) │ │ - Anomaly │ │ - Game Theory│
+│        │ │ - Classify│ │ - Probability│
+└────────┘ └───────────┘ └──────┬───────┘
+                                |
+              ┌─────────────────┼──────────┐
+              |                 |          |
+              v                 v          v
+           Allow             Block      Alert
+              |
+              v
+      Backend Application
+              |
+   ┌──────────┼──────────────────┐
+   v          v                  v
+┌────────┐ ┌──────────────┐ ┌──────────────┐
+│ DSMS / │ │ Distributed  │ │ SOC          │
+│ Rate   │ │ Logging &    │ │ Dashboard &  │
+│ Limiter│ │ Blob/DB      │ │ Control Sys  │
+└────────┘ └──────────────┘ │ (RBAC)       │
+                            └──────────────┘
+              |
+              v
+┌──────────────────────────┐
+│ Monitoring System        │
+│ - Metrics & Health       │
+│ - Bird's-Eye Views       │
+│ - Alerting & Reporting   │
+└──────────────────────────┘</pre>
+        </div>
+
+        <h3>Data Flow (12 Steps)</h3>
+        <ol class="content-list" style="columns: 2; column-gap: 20px;">
+          <li>Request → Global LB (Layer 7)</li>
+          <li>TLS termination</li>
+          <li>API Gateway routing</li>
+          <li><strong>Inbound Inspection</strong> (Dual-Wall)</li>
+          <li>Feature extraction (entropy, density)</li>
+          <li><strong>ML + XAI</strong> detection</li>
+          <li><strong>Game Theory</strong> decision</li>
+          <li>K-V cache lookup</li>
+          <li>Allow/Block/Alert action</li>
+          <li><strong>Outbound Inspection</strong> (response)</li>
+          <li>Distributed logging</li>
+          <li>SOC update + feedback loop</li>
+        </ol>
+
+        <h3>Architecture Approach</h3>
+        <p><strong>Arch & Approach → Plans (cycling):</strong> Team mgmt • Engineering rules • RBAC control • SOC dashboard • Model dev • Phase-wise (1+10) plan</p>
+
+        <h3>Design Patterns</h3>
+        <p><strong>Dual-Wall</strong> (req+resp) | <strong>Pipeline</strong> (staged) | <strong>Event-Driven</strong> (async) | <strong>Feedback Loop</strong> (online learning) | <strong>Distributed Cache</strong> | <strong>Game Theory</strong></p>
+
+        <h3>Scalability</h3>
+        <p><strong>Horizontal:</strong> Add instances | <strong>Sync:</strong> Centralize DB + sync nodes | <strong>API Library:</strong> Deploy anywhere | <strong>DSMS:</strong> DDoS protection | <strong>Logging:</strong> Distributed aggregation | <strong>SOC:</strong> Low-latency updates</p>
+
+        <h3>File Structure</h3>
+        <div class="code-block">
+          <pre>adaptive-waf/
+├── core/
+│   ├── reverse_proxy.go         (Load distribution, TLS termination)
+│   ├── packet_parser.go         (Protocol parsing)
+│   └── inspector.go             (Request analysis)
+├── ml/
+│   ├── models/                  (Trained ML models)
+│   ├── detector.py              (Anomaly detection)
+│   ├── classifier.py            (Attack classification)
+│   └── trainer.py               (Model training pipeline)
+├── decision/
+│   ├── engine.go                (Decision logic)
+│   └── policies.yaml            (Security policies)
+├── logging/
+│   ├── audit_logger.go          (Event logging)
+│   └── siem_integration.go      (External system integration)
+├── dashboard/
+│   ├── frontend/                (React-based UI)
+│   ├── api/                     (REST API endpoints)
+│   └── websocket/               (Real-time updates)
+├── config/
+│   ├── waf_config.yaml          (WAF configuration)
+│   └── model_config.json        (ML model parameters)
+├── tests/
+│   ├── unit/                    (Unit tests)
+│   ├── integration/             (Integration tests)
+│   └── performance/             (Benchmark tests)
+└── docs/
+    ├── deployment/              (Installation guides)
+    ├── api/                     (API documentation)
+    └── configuration/           (Configuration reference)</pre>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>Intelligent Web Application Firewall (PS-2.2) © 2026</p>
+  </footer>
+
+</body>
+</html>

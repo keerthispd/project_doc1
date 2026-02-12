@@ -1,0 +1,123 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Stack - Intelligent Web Application Firewall (PS-2.2)</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <header class="header">
+    <h1>Technology Stack</h1>
+    <p class="subtitle">Enterprise security technologies and performance-optimized frameworks</p>
+  </header>
+
+  <div class="container">
+
+    <section class="content-section">
+      <div class="breadcrumb">
+        <a href="INDEX.html">← Back to Home</a>
+      </div>
+
+      <div class="doc-content-full">
+        <h2>Tech Stack</h2>
+        <p>High-performance stack optimized for threat detection, ML inference, real-time security — with <strong>Federated ML</strong>, <strong>PPML</strong>, and <strong>ZKP</strong> considerations</p>
+
+        <h3>Core Processing</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px;">
+          <div>
+            <strong>Go/C Proxy</strong><br>
+            Ultra-fast traffic handling • Custom impl • &lt;10ms latency • Millions req/s • Multi-threaded
+          </div>
+          <div>
+            <strong>Libpcap/eBPF</strong><br>
+            Kernel-level capture • Zero-copy • Linux 5.8+ • Minimal overhead
+          </div>
+          <div>
+            <strong>OpenSSL/BoringSSL</strong><br>
+            TLS 1.2/1.3 • SNI support • Modern ciphers • Hardware accel
+          </div>
+        </div>
+
+        <h3>ML & Analytics</h3>
+        <p><strong>Training:</strong> Python + TensorFlow/PyTorch (Isolation Forest, LSTM, RF, GB, NNs) + CUDA | scikit-learn (preprocessing)</p>
+        <p><strong>Inference:</strong> ONNX Runtime (cross-platform optimized) | <strong>XAI:</strong> SHAP/LIME (on-demand explainability) | <strong>Data:</strong> Pandas + NumPy</p>
+
+        <h3>Advanced ML</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+          <div class="highlight-box">
+            <strong>Federated ML</strong><br>
+            Distributed learning across instances without centralizing data
+          </div>
+          <div class="highlight-box">
+            <strong>PPML</strong><br>
+            Privacy-preserving inspection (differential privacy, secure aggregation)
+          </div>
+          <div class="highlight-box">
+            <strong>Zero-Knowledge Proofs</strong><br>
+            Future: Verification without revealing data (client trust)
+          </div>
+          <div class="highlight-box">
+            <strong>Blockchain/Crypto</strong><br>
+            Under consideration: Tamper-proof audit trails
+          </div>
+        </div>
+
+        <h3>Data Engineering</h3>
+        <p><strong>Analysis:</strong> Entropy (traffic patterns) • Density (volume distribution) • Error classification • Per-layer regression</p>
+        <p><strong>Models:</strong> Statistical (probabilistic baseline) • ML (anomaly/classification) • Game theory (decisions)</p>
+        <p><strong>Sources:</strong> Online datasets (public attacks) • Custom test data • Production traffic (anonymized, continuous learning)</p>
+
+        <h3>Dashboard & Viz</h3>
+        <p><strong>Frontend:</strong> React/Vue (component-based, SSR) + Redux/Vuex | <strong>Charts:</strong> D3.js + ECharts (WebGL for large data) | <strong>Real-time:</strong> WebSocket (Socket.io, live feeds)</p>
+
+        <h3>Logging & SIEM</h3>
+        <p><strong>ELK Stack:</strong> Elasticsearch + Logstash + Kibana (millions events/day, hot/warm/cold tiers)</p>
+        <p><strong>SIEM:</strong> Splunk integration (Syslog, JSON, CEF) | <strong>DB:</strong> PostgreSQL/TimescaleDB (time-series, tamper-proof audit)</p>
+        <p><strong>Cache:</strong> Redis cluster (sub-ms lookups, distributed, high availability)</p>
+
+        <h3>Development & Testing</h3>
+        <p>Go (core WAF) | Python (ML) | REST API (OpenAPI 3.0) | Unit (Go test, pytest) | Integration (Docker) | Perf (JMeter, Go bench) | Security (OWASP ZAP)</p>
+
+        <h3>Deployment & Infra</h3>
+        <p><strong>Containers:</strong> Docker + Swarm + K8s (orchestration, scaling) + Registry</p>
+        <p><strong>Proxy:</strong> Nginx (reverse proxy, LB, SSL/TLS termination, routing)</p>
+        <p><strong>OS:</strong> CentOS 8+/Ubuntu 20.04 LTS | Kernel 5.8+ (eBPF) | Hardened configs</p>
+        <p><strong>CI/CD:</strong> GitHub Actions (builds) + Terraform (IaC) + Auto testing (Smoke→Stress)</p>
+        <p><strong>Monitoring:</strong> Prometheus (metrics) + Grafana (viz/alerts) + Jaeger (tracing) + SOC dashboard</p>
+
+        <h3>Browser Support</h3>
+        <p>Chrome/Edge, Firefox, Safari (latest) • Mobile: iOS Safari, Chrome • Dashboard for security ops, not end-users</p>
+
+        <h3>Performance Targets</h3>
+        <table class="comparison-table" style="font-size: 0.85em;">
+          <tr><th>Metric</th><th>Target</th><th>Priority</th></tr>
+          <tr><td>Inspection Latency</td><td>&lt;10ms</td><td>Critical</td></tr>
+          <tr><td>ML Inference</td><td>&lt;5ms</td><td>Critical</td></tr>
+          <tr><td>Throughput/Instance</td><td>&gt;100k req/s</td><td>Critical</td></tr>
+          <tr><td>Memory</td><td>&lt;4GB</td><td>Important</td></tr>
+          <tr><td>Model Updates</td><td>Daily+</td><td>Important</td></tr>
+          <tr><td>Dashboard Latency</td><td>&lt;100ms</td><td>Important</td></tr>
+        </table>
+
+        <h3>Dependencies Summary</h3>
+        <div class="code-block" style="font-size: 0.85em;">
+          <pre><strong>Core:</strong> Go 1.16+ | LibPcap | OpenSSL/BoringSSL | ONNX Runtime | Nginx
+<strong>ML:</strong> Python 3.8+ | TF 2.x/PyTorch 1.12+ | scikit-learn | SHAP/LIME | Pandas+NumPy
+<strong>Advanced:</strong> Federated ML | PPML toolkit | ZKP (future)
+<strong>Dashboard:</strong> Node.js 14+ | React 17+/Vue 3+ | D3.js+ECharts | WebSocket
+<strong>Infra:</strong> Docker 20.10+ | K8s 1.20+ | PostgreSQL 12+ | Redis 6+ | ES 7.10+ | GitHub</pre>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>Intelligent Web Application Firewall (PS-2.2) © 2026</p>
+  </footer>
+
+</body>
+</html>

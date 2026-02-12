@@ -1,0 +1,165 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MVP - Intelligent Web Application Firewall (PS-2.2)</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <header class="header">
+    <h1>MVP Specifications</h1>
+    <p class="subtitle">Core MVP deliverables for adaptive WAF launch</p>
+  </header>
+
+  <div class="container">
+
+    <section class="content-section">
+      <div class="breadcrumb">
+        <a href="INDEX.html">← Back to Home</a>
+      </div>
+
+      <div class="doc-content-full">
+        <h2>MVP</h2>
+        <p><strong>Phase-wise (1+10) Plan</strong> with <strong>(4+2) KEER</strong> checkpoints — adaptive WAF with XAI, dual-wall, SOC dashboard</p>
+
+        <h3>Overview</h3>
+        <table class="scope-table" style="font-size: 0.9em;">
+          <tr>
+            <td><strong>Goals:</strong></td>
+            <td>Adaptive distributed WAF • XAI + game theory • Novel capabilities • Peak engineering</td>
+          </tr>
+          <tr>
+            <td><strong>Objectives:</strong></td>
+            <td>OWASP Top 10+ • Dual-wall • API library • SOC dashboard</td>
+          </tr>
+          <tr>
+            <td><strong>Constraints:</strong></td>
+            <td>Latency max = α, time &lt;&lt; α | Distributed | Open-source | Accuracy + scalability</td>
+          </tr>
+          <tr>
+            <td><strong>Deliverables:</strong></td>
+            <td>ML+XAI+dual-wall WAF • SOC dashboard+RBAC • Logging+monitoring • DevOps+MLOps</td>
+          </tr>
+        </table>
+
+        <h3>Definition</h3>
+        <p>Adaptive distributed WAF protecting against OWASP Top 10 + zero-day + novel attacks using ML+XAI, game theory, dual-wall, SOC dashboard — deployable via API library</p>
+
+        <h3>Core MVP Features</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+          <div>
+            <h4>Threat Detection</h4>
+            <p style="font-size: 0.9em;">ML anomaly + OWASP Top 10 + Real-time inspection + Threat scoring</p>
+          </div>
+          <div>
+            <h4>Request Blocking</h4>
+            <p style="font-size: 0.9em;">Block/alert/challenge • Rate limiting • DDoS protection • 403/429 responses</p>
+          </div>
+          <div>
+            <h4>Logging & Audit</h4>
+            <p style="font-size: 0.9em;">Complete logs • Decision rationale • ELK integration • Audit trail</p>
+          </div>
+          <div>
+            <h4>Dashboard</h4>
+            <p style="font-size: 0.9em;">Live feed • Threat stats • Geo heatmap • Latency/throughput metrics</p>
+          </div>
+          <div>
+            <h4>Performance</h4>
+            <p style="font-size: 0.9em;">&lt;10ms p99 latency • &gt;100k req/s • High availability • Auto failover</p>
+          </div>
+        </div>
+
+        <h4 style="margin-top: 15px;">Phase 2 (Post-MVP)</h4>
+        <p>TLS inspection • Threat hunting UI • SIEM (Splunk, Sumo) • Federated learning • Auto incident response • Custom rule API</p>
+
+        <h4>Out of Scope</h4>
+        <p>Multi-user auth (basic only) • E2E encrypted inspection • Insider threat analytics • CDN integration • ML training UI • Auto threat feeds</p>
+
+        <h3>Phase-wise (1+10) Plan</h3>
+        <table class="comparison-table" style="font-size: 0.85em;">
+          <tr><th>Phase</th><th>Duration</th><th>Deliverables</th></tr>
+          <tr>
+            <td><strong>0: Setup</strong></td>
+            <td>1 week</td>
+            <td>HLD→LLD • DevOps+MLOps • Team mgmt • Engineering rules</td>
+          </tr>
+          <tr>
+            <td><strong>1-3: Core</strong></td>
+            <td>3 weeks</td>
+            <td>Proxy+inspection • Dual-wall • API gateway • DSMS • Basic ML</td>
+          </tr>
+          <tr>
+            <td><strong>4-6: Intelligence</strong></td>
+            <td>3 weeks</td>
+            <td>XAI (SHAP/LIME) • Game theory • User modeling • LT/ST/LST memory</td>
+          </tr>
+          <tr>
+            <td><strong>7-8: Dashboard</strong></td>
+            <td>2 weeks</td>
+            <td>SOC dashboard • RBAC • Distributed logs • Monitoring</td>
+          </tr>
+          <tr>
+            <td><strong>9-10: Testing</strong></td>
+            <td>2 weeks</td>
+            <td>Smoke→Stress hierarchy • Attack sim • Benchmarks • (4+2) KEER</td>
+          </tr>
+        </table>
+
+        <h3>Team & Management</h3>
+        <p>Agile-Waterfall hybrid • Peak individual efficiency • Arch→Plans cycling • RBAC control • Separate ML track</p>
+
+        <h3>Success Criteria</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; font-size: 0.9em;">
+          <div><strong>Security:</strong> 90%+ OWASP detection • &lt;2% FP • Zero-day ML • &lt;100ms response</div>
+          <div><strong>Performance:</strong> &lt;10ms p99 latency • &gt;100k req/s • &lt;5ms ML inference • &lt;60% CPU</div>
+          <div><strong>Operational:</strong> 99.5%+ uptime • &lt;10s alerts • 90d audit • 100% auto response</div>
+        </div>
+
+        <h3>Go/No-Go</h3>
+        <table class="scope-table" style="font-size: 0.9em;">
+          <tr>
+            <td><strong>GO:</strong></td>
+            <td>✓ Threat detection works • Perf targets hit • Security passed • Dashboard+ELK+deploy working • No critical issues</td>
+          </tr>
+          <tr>
+            <td><strong>NO-GO:</strong></td>
+            <td>✗ Detection &lt;80% • Latency &gt;15ms • Throughput &lt;50k req/s • Critical vulns • Dashboard/logging broken</td>
+          </tr>
+        </table>
+
+        <h3>Post-MVP Roadmap</h3>
+        <p><strong>Phase 2:</strong> Federated ML (PPML) • ZKP • Threat hunting UI • Auto incident response • Blockchain audit</p>
+        <p><strong>Phase 3:</strong> SIEM (Splunk/Sumo) • Behavioral analytics • Custom rule engine • Global threat sharing</p>
+        <p><strong>Phase 4+:</strong> Hardware accel (FPGA/GPU) • Autonomous hunting • Zero-trust • Edge/CDN integration</p>
+
+        <h3>Dependencies</h3>
+        <p>Go 1.16+ | Python 3.8+ | Docker+Swarm+K8s | Nginx | Redis 6+ | Elasticsearch 7.10+ | GitHub</p>
+
+        <h3>Traps to Avoid</h3>
+        <div class="highlight-box">
+          <strong>No over-engineering</strong> (heavy maintenance) | <strong>Balance accuracy + scalability</strong> with novel demos | <strong>Focus on data engineering</strong> (critical datasets) | <strong>Novelty × reliability</strong>
+        </div>
+
+        <h3>Risk Assessment</h3>
+        <table class="comparison-table" style="font-size: 0.85em;">
+          <tr><th>Risk</th><th>P</th><th>I</th><th>Mitigation</th></tr>
+          <tr><td>ML accuracy &lt;90%</td><td>M</td><td>H</td><td>Iterative training, A/B testing</td></tr>
+          <tr><td>Performance targets missed</td><td>M</td><td>C</td><td>Early benchmarking, optimization</td></tr>
+          <tr><td>Latency spike (ML)</td><td>M</td><td>H</td><td>Quantization, caching, batching</td></tr>
+          <tr><td>Logging bottleneck</td><td>L</td><td>H</td><td>Async logging, buffering, partitioning</td></tr>
+          <tr><td>Zero-day blindness</td><td>H</td><td>C</td><td>Continuous learning, honeypots, feeds</td></tr>
+        </table>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>Intelligent Web Application Firewall (PS-2.2) © 2026</p>
+  </footer>
+
+</body>
+</html>
