@@ -15,4 +15,4 @@
 Enterprise security, DevSecOps, SaaS providers, financial institutions, and incident response teams requiring intelligent, explainable, and adaptive security solutions.
 
 <h2>Core Architecture</h2>
-The system combines ML/AI, game theory, and explainability to address the limitations of traditional static, centralized WAFs that fail against novel and zero-day attacks.
+The system combines ML/AI, stratigic matrix, and explainability to address the limitations of traditional static, centralized WAFs that fail against novel and zero-day attacks.
