@@ -3,7 +3,7 @@
 
 <h2>Key Features</h2>
 <ul>
-<li>Adaptive Learning — ML-based anomaly detection with LT/ST/LST memory and online learning capabilities</li>
+<li>Adaptive Learning — ML-based anomaly detection with flexible memory and online learning capabilities</li>
 <li>Explainable AI (XAI) — Transparent decision-making with SHAP/LIME for full traceability</li>
 <li>Dual-Wall Inspection — Bidirectional protection for both inbound requests and outbound responses</li>
 <li>Game Theory-Based Decisions — Probability-based strategy matrix for intelligent threat assessment</li>
