@@ -1,4 +1,4 @@
-<head>Project Description</head>
+<header>Project Description</header>
 <h1>PS-2.2: Intelligent Web Application Firewall is an open-source, distributed Web Application Firewall (WAF) designed to provide next-generation security against evolving web threats.</h1>
 
 <h2>Key Features</h2>
